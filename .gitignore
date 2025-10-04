@@ -15,8 +15,9 @@ main.js
 # Exclude sourcemaps
 *.map
 
-# obsidian
+# obsidian-test
 data.json
+test-plugin-installation/
 
 # Exclude macOS Finder (System Explorer) View States
 .DS_Store

@@ -1,11 +1,10 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
+	"id": "obsidian-photo-exif-manager",
+	"name": "Photo EXIF Manager",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"description": "读取和管理照片EXIF信息，包括拍摄时间、相机型号、光圈、快门速度等元数据。",
+	"author": "Developer",
+	"authorUrl": "",
 	"isDesktopOnly": false
 }

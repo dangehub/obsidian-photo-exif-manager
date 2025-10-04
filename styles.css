@@ -1,8 +1,277 @@
-/*
+/* Photo EXIF Manager Plugin Styles */
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+/* EXIF模态框主容器 */
+.photo-exif-modal {
+    /* 使用Obsidian的变量系统 */
+    --background-primary: var(--bg1, #ffffff);
+    --background-secondary: var(--bg2, #f8f9fa);
+    --text-normal: var(--text1, #242424);
+    --text-muted: var(--text3, #6b6b6b);
+    --border-color: var(--border1, #e0e0e0);
+    --interactive-accent: var(--accent1, #007acc);
+    --radius-s: 4px;
+    --radius-m: 8px;
+}
 
-If your plugin does not need CSS, delete this file.
+.theme-dark .photo-exif-modal {
+    --background-primary: var(--bg1, #141414);
+    --background-secondary: var(--bg2, #1e1e1e);
+    --text-normal: var(--text1, #e0e0e0);
+    --text-muted: var(--text3, #888888);
+    --border-color: var(--border1, #333333);
+    --interactive-accent: var(--accent1, #008acc);
+}
 
-*/
+/* EXIF模态框容器 */
+.exif-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 900px;
+    min-height: 500px;
+}
+
+/* 图片预览区域 */
+.exif-preview-section {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-preview-container {
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-m);
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.exif-image-preview {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: var(--radius-s);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.exif-image-preview:hover {
+    opacity: 0.8;
+}
+
+.no-preview {
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 20px;
+}
+
+/* 信息展示区域 */
+.exif-info-section {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+/* 信息分组 */
+.exif-section {
+    margin-bottom: 20px;
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-m);
+    overflow: hidden;
+}
+
+.exif-section-title {
+    background: var(--background-primary);
+    padding: 12px 16px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-normal);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* 信息项列表 */
+.exif-items {
+    padding: 0;
+}
+
+/* 单个信息项 */
+.exif-info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.exif-info-item:last-child {
+    border-bottom: none;
+}
+
+.exif-info-item:hover,
+.exif-info-item.hover {
+    background: var(--background-primary);
+}
+
+.exif-label {
+    font-weight: 500;
+    color: var(--text-normal);
+    font-size: 13px;
+}
+
+.exif-value {
+    color: var(--text-muted);
+    font-family: var(--font-monospace);
+    font-size: 13px;
+    text-align: right;
+    max-width: 60%;
+    word-break: break-all;
+}
+
+/* 操作按钮区域 */
+.exif-actions {
+    display: flex;
+    gap: 10px;
+    padding: 20px 0 0 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 20px;
+}
+
+/* 按钮样式 */
+.exif-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-s);
+    background: var(--background-secondary);
+    color: var(--text-normal);
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+.exif-btn:hover {
+    background: var(--background-primary);
+    border-color: var(--interactive-accent);
+}
+
+.exif-btn-primary {
+    background: var(--interactive-accent);
+    color: var(--background-primary);
+    border-color: var(--interactive-accent);
+}
+
+.exif-btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* 无EXIF数据提示 */
+.no-exif-data {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+}
+
+.no-exif-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.no-exif-text {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-normal);
+}
+
+.no-exif-desc {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Toast提示样式 */
+.exif-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--background-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-s);
+    padding: 12px 16px;
+    color: var(--text-normal);
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    animation: exifToastSlideIn 0.3s ease-out;
+}
+
+@keyframes exifToastSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .exif-container {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .exif-preview-section {
+        flex: none;
+    }
+
+    .exif-info-section {
+        max-height: none;
+    }
+
+    .exif-info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .exif-value {
+        text-align: left;
+        max-width: none;
+    }
+
+    .exif-actions {
+        flex-direction: column;
+    }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+    .exif-info-item:hover {
+        background: var(--background-primary);
+        border: 2px solid var(--text-normal);
+    }
+
+    .exif-btn {
+        border-width: 2px;
+    }
+}
+
+/* 减少动画模式支持 */
+@media (prefers-reduced-motion: reduce) {
+    .exif-image-preview,
+    .exif-btn,
+    .exif-info-item,
+    .exif-toast {
+        transition: none;
+    }
+
+    .exif-toast {
+        animation: none;
+    }
+}

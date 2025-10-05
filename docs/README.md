@@ -33,7 +33,7 @@
 1. 在您的Obsidian库中安装 [BRAT插件](https://github.com/TfTHacker/obsidian42-brat)
 2. 打开BRAT设置并添加以下测试插件：
    ```
-   obsidian-photo-exif-manager
+   https://github.com/dangehub/obsidian-photo-exif-manager
    ```
 3. 安装完成后启用插件
 

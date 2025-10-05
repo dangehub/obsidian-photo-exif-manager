@@ -31,7 +31,7 @@ A powerful Obsidian plugin for reading and managing photo EXIF metadata, includi
 1. Install the [BRAT plugin](https://github.com/TfTHacker/obsidian42-brat) in your Obsidian vault
 2. Open the BRAT settings and add the following beta plugin:
    ```
-   obsidian-photo-exif-manager
+   https://github.com/dangehub/obsidian-photo-exif-manager
    ```
 3. Enable the plugin once it's installed
 

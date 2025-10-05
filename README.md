@@ -111,4 +111,4 @@ If you encounter any issues or have questions:
 ### Version 0.0.1
 - Initial release
 - Basic EXIF data extraction and display
-- Support for common photo formats (JPEG, PNG, TIFF)
+- Support for common photo formats (JPEG, PNG, TIFF) 

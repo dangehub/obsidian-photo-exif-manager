@@ -108,7 +108,7 @@ If you encounter any issues or have questions:
 
 ## Changelog
 
-### Version 1.0.0
+### Version 0.0.1
 - Initial release
 - Basic EXIF data extraction and display
 - Support for common photo formats (JPEG, PNG, TIFF)
